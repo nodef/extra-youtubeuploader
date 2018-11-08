@@ -26,6 +26,6 @@ function url() {
 // Main installer.
 async function main() {
   await download(url(), __dirname, {extract: true});
-  cp.execSync('rm -rf node_nodules');
+  // cp.execSync('rm -rf node_nodules');
 };
 main();

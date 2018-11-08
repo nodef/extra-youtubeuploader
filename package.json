@@ -1,9 +1,14 @@
 {
   "name": "extra-youtubeuploader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Upload YouTube videos with caption through machines (via \"youtubeuploader\").",
   "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "youtubeuploader": "youtubeuploader"
+  },
   "scripts": {
+    "install": "node install",
     "test": "exit"
   },
   "repository": {
