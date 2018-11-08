@@ -1,0 +1,32 @@
+{
+  "name": "extra-youtubeuploader",
+  "version": "0.0.1",
+  "description": "Upload YouTube videos with caption through machines (via \"youtubeuploader\").",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodef/extra-youtubeuploader.git"
+  },
+  "keywords": [
+    "extra",
+    "youtubeuploader",
+    "upload",
+    "youtube",
+    "video",
+    "caption",
+    "machine",
+    "data",
+    "api",
+    "oauth",
+    "merferry"
+  ],
+  "author": "wolfram77@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nodef/extra-youtubeuploader/issues"
+  },
+  "homepage": "https://github.com/nodef/extra-youtubeuploader#readme"
+}
