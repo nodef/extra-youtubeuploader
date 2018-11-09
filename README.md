@@ -1,4 +1,5 @@
 Upload YouTube videos with caption through machines (via ["youtubeuploader"]).
+> Uses [setup-youtubeuploader] to install, if absent.
 
 ```javascript
 const youtubeuploader = require('extra-youtubeuploader');
@@ -56,3 +57,4 @@ youtubeuploader.sync({secrets, cache, filename: 'zoo.avi', metaJSON, caption});
 [![Merferry](https://i.imgur.com/HS08T0y.jpg)](https://merferry.github.io)
 
 ["youtubeuploader"]: https://github.com/porjo/youtubeuploader
+[setup-youtubeuploader]: https://www.npmjs.com/package/setup-youtubeuploader
