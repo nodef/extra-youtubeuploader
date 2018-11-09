@@ -1,12 +1,8 @@
 {
   "name": "extra-youtubeuploader",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Upload YouTube videos with caption through machines (via \"youtubeuploader\").",
   "main": "index.js",
-  "preferGlobal": true,
-  "bin": {
-    "youtubeuploader": "youtubeuploader"
-  },
   "scripts": {
     "install": "node install",
     "test": "exit"
@@ -33,8 +29,5 @@
   "bugs": {
     "url": "https://github.com/nodef/extra-youtubeuploader/issues"
   },
-  "homepage": "https://github.com/nodef/extra-youtubeuploader#readme",
-  "dependencies": {
-    "download": "^7.1.0"
-  }
+  "homepage": "https://github.com/nodef/extra-youtubeuploader#readme"
 }
