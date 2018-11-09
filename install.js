@@ -10,7 +10,11 @@ function cpRun(txt) {
 
 // Setup "youtubeuploader".
 function setup() {
-  if(cpRun('youtubeuploader -v')) return;
-  cpRun('npm install -g setup-youtubeuploader');
+  if(cpRun('youtubeuploader -v')) {
+    console.log('extra: youtubeuploader already exists.');
+    return;
+  }
+  console.log('extra: Using setup-youtubeuploader');
+  cp.execSync('npm install -g setup-youtubeuploader', {stdio: [0, 1, 2]});
 };
 setup();
