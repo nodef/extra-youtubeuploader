@@ -64,19 +64,29 @@ youtubeuploader -v video.mp4 -yp public
 ```bash
 youtubeuploader [options]
 # --help: show this help
-# -v, --video:   set input video file
-# -m, --meta:    set input meta file
-# -c, --caption: set input caption file
-# -l, --log:     enable log
+# -v, --video:     set input video file
+# -t, --thumbnail: set input thumbnail file
+# -c, --caption:   set input caption file
+# -m, --meta:      set input meta file
+# -l, --log:       enable log
 # -ci, --client_id:    set client id credentials path (client_id.json)
 # -ct, --client_token: set client token credentials path (client_token.json)
-# -vt, --video_title:       set video title (video file)
-# -vd, --video_description: set video description (video file)
-# -vk, --video_tags:        set video tags/keywords
-# -vl, --video_language:    set video language (en)
-# -vc, --video_category:    set video category id (22)
-# -vp, --video_privacy:     set video privacy (private)
-# -vi, --video_thumbnail:   set video thumbnail/image
+# -vt, --video_title:         set video title (video file)
+# -vd, --video_description:   set video description (video file)
+# -vk, --video_tags:          set video tags/keywords
+# -vl, --video_language:      set video language (en)
+# -vc, --video_category:      set video category id (22)
+# -vp, --video_privacystatus: set video privacy status (public)
+# -ve, --video_embeddable:    enable video to be embeddable (1)
+# -vl, --video_license:       set video license (standard)
+# -vs, --video_publicstatsviewable: enable public video stats to be viewable (1)
+# -vpa, --video_publishat:          set video publish time
+# -vrd, --video_recordingdate:  set video recording date
+# -vpi, --video_playlistids:    set video playlist ids
+# -vpt, --video_playlisttitles: set video playlist titles
+# -vla, --video_location_latitude:   set video latitude coordinate
+# -vlo, --video_location_longitude:  set video longitude coordinate
+# -vld, --video_locationdescription: set video location description
 # -uc, --upload_chunk:  set upload chunk size in bytes (8388608)
 # -ur, --upload_rate:   set upload rate limit in kbps (no limit)
 # -ut, --upload_time:   set upload time limit ex- "10:00-14:00"
@@ -87,18 +97,37 @@ youtubeuploader [options]
 $YOUTUBEUPLOADER_LOG # enable log (0)
 $YOUTUBEUPLOADER_CLIENT_ID    # set client id credentials path (client_id.json)
 $YOUTUBEUPLOADER_CLIENT_TOKEN # set client token credentials path (client_token.json)
-$YOUTUBEUPLOADER_VIDEO_TITLE       # set video title (video file)
-$YOUTUBEUPLOADER_VIDEO_DESCRIPTION # set video description (video file)
-$YOUTUBEUPLOADER_VIDEO_TAGS        # set video tags/keywords
-$YOUTUBEUPLOADER_VIDEO_LANGUAGE    # set video language (en)
-$YOUTUBEUPLOADER_VIDEO_CATEGORY    # set video category id (22)
-$YOUTUBEUPLOADER_VIDEO_PRIVACY     # set video privacy (private)
-$YOUTUBEUPLOADER_VIDEO_THUMBNAIL   # set video thumbnail/image
+$YOUTUBEUPLOADER_VIDEO_TITLE         # set video title (video file)
+$YOUTUBEUPLOADER_VIDEO_DESCRIPTION   # set video description (video file)
+$YOUTUBEUPLOADER_VIDEO_TAGS          # set video tags/keywords
+$YOUTUBEUPLOADER_VIDEO_LANGUAGE      # set video language (en)
+$YOUTUBEUPLOADER_VIDEO_CATEGORY      # set video category id (22)
+$YOUTUBEUPLOADER_VIDEO_PRIVACYSTATUS # set video privacy (public)
+$YOUTUBEUPLOADER_VIDEO_EMBEDDABLE    # enable video to be embeddable (1)
+$YOUTUBEUPLOADER_VIDEO_LICENSE       # set video license (standard)
+$YOUTUBEUPLOADER_VIDEO_PUBLICSTATSVIEWABLE # enable public video stats to be viewable (1)
+$YOUTUBEUPLOADER_VIDEO_PUBLISHAT           # set video publish time
+$YOUTUBEUPLOADER_VIDEO_RECORDINGDATE  # set video recording date
+$YOUTUBEUPLOADER_VIDEO_PLAYLISTIDS    # set video playlist ids
+$YOUTUBEUPLOADER_VIDEO_PLAYLISTTITLES # set video playlist titles
+$YOUTUBEUPLOADER_VIDEO_LOCATION_LATITUDE   # set video latitude coordinate
+$YOUTUBEUPLOADER_VIDEO_LOCATION_LONGITUDE  # set video longitude coordinate
+$YOUTUBEUPLOADER_VIDEO_LOCATIONDESCRIPTION # set video location description
 $YOUTUBEUPLOADER_UPLOAD_CHUNK  # set upload chunk size in bytes (8388608)
 $YOUTUBEUPLOADER_UPLOAD_RATE   # set upload rate limit in kbps (no limit)
 $YOUTUBEUPLOADER_UPLOAD_TIME   # set upload time limit ex- "10:00-14:00"
 $YOUTUBEUPLOADER_AUTH_PORT     # set OAuth request port (8080)
 $YOUTUBEUPLOADER_AUTH_HEADLESS # enable browserless OAuth process
+```
+
+
+## package
+
+
+```javascript
+const youtubeuploader = require('extra-youtubeuploader');
+
+youtubeuploader();
 ```
 
 
