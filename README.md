@@ -46,6 +46,62 @@ Upload YouTube videos with caption through machines (via ["youtubeuploader"]).
 <br>
 
 
+## console
+
+```bash
+youtubeuploader -v video.mp4
+# video.mp4 uploaded (yay!)
+
+youtubeuploader -v video.mkv -yt "Me at the zoo" -yd "The first video on YouTube..."
+# video.mkv uploaded with title and description
+
+youtubeuploader -v video.mp4 -yp public
+# video.mp4 uploaded as public video
+```
+
+### reference
+
+```bash
+youtubeuploader [options]
+# --help: show this help
+# -v, --video:   set input video file
+# -m, --meta:    set input meta file
+# -c, --caption: set input caption file
+# -l, --log:     enable log
+# -ci, --client_id:    set client id credentials path (client_id.json)
+# -ct, --client_token: set client token credentials path (client_token.json)
+# -vt, --video_title:       set video title (video file)
+# -vd, --video_description: set video description (video file)
+# -vk, --video_tags:        set video tags/keywords
+# -vl, --video_language:    set video language (en)
+# -vc, --video_category:    set video category id (22)
+# -vp, --video_privacy:     set video privacy (private)
+# -vi, --video_thumbnail:   set video thumbnail/image
+# -uc, --upload_chunk:  set upload chunk size in bytes (8388608)
+# -ur, --upload_rate:   set upload rate limit in kbps (no limit)
+# -ut, --upload_time:   set upload time limit ex- "10:00-14:00"
+# -ap, --auth_port:     set OAuth request port (8080)
+# -ah, --auth_headless: enable browserless OAuth process
+
+# Environment variables:
+$YOUTUBEUPLOADER_LOG # enable log (0)
+$YOUTUBEUPLOADER_CLIENT_ID    # set client id credentials path (client_id.json)
+$YOUTUBEUPLOADER_CLIENT_TOKEN # set client token credentials path (client_token.json)
+$YOUTUBEUPLOADER_VIDEO_TITLE       # set video title (video file)
+$YOUTUBEUPLOADER_VIDEO_DESCRIPTION # set video description (video file)
+$YOUTUBEUPLOADER_VIDEO_TAGS        # set video tags/keywords
+$YOUTUBEUPLOADER_VIDEO_LANGUAGE    # set video language (en)
+$YOUTUBEUPLOADER_VIDEO_CATEGORY    # set video category id (22)
+$YOUTUBEUPLOADER_VIDEO_PRIVACY     # set video privacy (private)
+$YOUTUBEUPLOADER_VIDEO_THUMBNAIL   # set video thumbnail/image
+$YOUTUBEUPLOADER_UPLOAD_CHUNK  # set upload chunk size in bytes (8388608)
+$YOUTUBEUPLOADER_UPLOAD_RATE   # set upload rate limit in kbps (no limit)
+$YOUTUBEUPLOADER_UPLOAD_TIME   # set upload time limit ex- "10:00-14:00"
+$YOUTUBEUPLOADER_AUTH_PORT     # set OAuth request port (8080)
+$YOUTUBEUPLOADER_AUTH_HEADLESS # enable browserless OAuth process
+```
+
+
 ```javascript
 const youtubeuploader = require('extra-youtubeuploader');
 // youtubeuploader.sync(<options>): stdout when done
