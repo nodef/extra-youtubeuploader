@@ -1,5 +1,50 @@
 Upload YouTube videos with caption through machines (via ["youtubeuploader"]).
-> Uses [setup-youtubeuploader] to install, if absent.
+<br>
+
+
+## setup
+
+### install
+
+1. Install [Node.js], if not installed.
+2. Run `npm install -g extra-youtubeuploader` in [console].
+
+
+### get client id
+
+1. Create an [account] on [Google Cloud Platform].
+2. Create a [new project], and select it.
+3. Enable [YouTube Data API] for the project.
+4. Add [credentials] to your project.
+5. Which API are you using? `YouTube Data API v3`.
+6. Where will you be calling the API from? `Web server`.
+7. What data will you be accessing? `User data`.
+8. Select `What credentials do I need?`.
+9. Create an OAuth 2.0 client ID.
+10. Name: `youtubeuploader` (your choice).
+11. Authorized JavaScript origins: `http://localhost:8080`.
+12. Authorized redirect URIs: `http://localhost:8080/oauth2callback`.
+13. Select `Create OAuth client ID`.
+14. Set up the OAuth 2.0 consent screen.
+15. Email address: (it should be correct).
+16. Product name shown to users: `youtubeuploader` (your choice).
+17. Select `Continue`.
+18. Download credentials.
+19. Select `Download`, then `Done`.
+21. Copy downloaded file (`client_id.json`) to a directory.
+
+
+### get client token
+
+1. Open [console] in the above directory.
+2. Run `youtubeuploader -v client_id.json`.
+3. OAuth page will be opened in browser.
+3. Choose an account, videos will be uploaded here.
+4. `youtubeuploader` wants to access your Google Account.
+5. Select `Allow`, and close browser window.
+6. `client_token.json` should be created.
+<br>
+
 
 ```javascript
 const youtubeuploader = require('extra-youtubeuploader');
@@ -54,7 +99,15 @@ youtubeuploader.sync({secrets, cache, filename: 'zoo.avi', metaJSON, caption});
 ```
 
 
-[![Merferry](https://i.imgur.com/HS08T0y.jpg)](https://merferry.github.io)
+[![nodef](https://i.imgur.com/HS08T0y.jpg)](https://nodef.github.io)
 
-["youtubeuploader"]: https://github.com/porjo/youtubeuploader
+["youtubeuploader"]: https://github.com/golangf/youtubeuploader
 [setup-youtubeuploader]: https://www.npmjs.com/package/setup-youtubeuploader
+
+[Node.js]: https://nodejs.org/en/download/
+[console]: https://en.wikipedia.org/wiki/Shell_(computing)#Text_(CLI)_shells
+[account]: https://accounts.google.com/signup
+[Google Cloud Platform]: https://console.developers.google.com/
+[new project]: https://console.cloud.google.com/projectcreate
+[YouTube Data API]: https://console.cloud.google.com/apis/library/youtube.googleapis.com
+[credentials]: https://console.cloud.google.com/apis/credentials/wizard
