@@ -188,10 +188,11 @@ await youtubeuploader({video: 'video.mkv', title: 'Me at the zoo',
 youtubeuploader.sync({video: 'video.mp4', privacystatus: 'public', log: true});
 // video.mp4 uploaded as public video (log enabled)
 
-var {stdout, stderr} = await youtubeuploader({title: 'Me at the zoo'});
-var id = stdout.split('\n')[0];
+var stdout = youtubeuploader.sync({title: 'Me at the zoo', stdio: null});
+var ids = stdout.toString().trim().split('\n');
 // get video ids from title
 
+var id = ids[0];
 await youtubeuploader({id, title: 'Elephants at zoo'});
 // update video title "Me at the zoo" -> "Elephants at zoo"
 
