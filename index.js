@@ -17,41 +17,27 @@ function flags(o, pre='', z='') {
   return z;
 }
 
- // Generate command for youtubeuploader.
- function command(o) {
-  return 'youtubeuploader'+flags(o||{});
-};
-
 /**
- * Invoke "youtubeuploader" synchronously.
- * @param {object} o upload options.
- */
-function sync(o) {
-  var stdio = o.log || o.stdio===undefined? STDIO:o.stdio;
-  return cp.execSync(command(o), {stdio});
-};
-
-/**
- * Invoke "youtubeuploader" asynchronously.
+ * Invoke "youtubeuploader".
  * @param {object} o upload options.
  */
 function youtubeuploader(o) {
-  var stdio = o.log || o.stdio===undefined? STDIO:o.stdio;
-  return new Promise((fres, frej) => cp.exec(command(o), {stdio}, (err, stdout, stderr) => {
-    if(err) frej(err);
-    else fres({stdout, stderr});
+  var o = o||{}, cmd = 'youtubeuploader'+flags(o);
+  var stdio = o.log || o.stdio==null? STDIO:o.stdio;
+  if(stdio===STDIO) return Promise.resolve({stdout: cp.execSync(cmd, {stdio})});
+  return new Promise((fres, frej) => cp.exec(cmd, {stdio}, (err, stdout, stderr) => {
+    return err? frej(err):fres({stdout, stderr});
   }));
 };
 
 /**
- * Invoke "youtubeuploader" asynchronously, and get stdout lines.
+ * Invoke "youtubeuploader", and get stdout lines.
  * @param {object} o upload options.
  */
 async function lines(o) {
-  var {stdout} = await youtubeuploader(o);
+  var {stdout} = await youtubeuploader(Object.assign({}, o, {stdio: []}));
   var out = stdout.toString().trim();
   return out? out.split('\n'):[];
 };
-youtubeuploader.sync = sync;
 youtubeuploader.lines = lines;
 module.exports = youtubeuploader;

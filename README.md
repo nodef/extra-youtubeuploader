@@ -185,11 +185,10 @@ await youtubeuploader({video: 'video.mkv', title: 'Me at the zoo',
   description: 'The first video on YouTube...'});
 // video.mkv uploaded with title and description
 
-youtubeuploader.sync({video: 'video.mp4', privacystatus: 'public', log: true});
+youtubeuploader({video: 'video.mp4', privacystatus: 'public', log: true});
 // video.mp4 uploaded as public video (log enabled)
 
-var stdout = youtubeuploader.sync({title: 'Me at the zoo', stdio: null});
-var ids = stdout.toString().trim().split('\n');
+var ids = await youtubeuploader.lines({title: 'Me at the zoo'});
 // get video ids from title
 
 var id = ids[0];
@@ -204,10 +203,6 @@ await youtubeuploader({id, caption: 'odia.txt', language: 'or'});
 
 ```javascript
 const youtubeuploader = require('extra-youtubeuploader');
-
-youtubeuploader.sync(options={})
-// options: see below
-// -> stdout
 
 youtubeuploader.lines(options={})
 // options: see below
