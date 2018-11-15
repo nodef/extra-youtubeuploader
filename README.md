@@ -206,12 +206,57 @@ await youtubeuploader({id, caption: 'odia.txt', language: 'or'});
 const youtubeuploader = require('extra-youtubeuploader');
 
 youtubeuploader.sync(options={})
-// options: same as flags given above
+// options: see below
 // -> stdout
 
 youtubeuploader(options={})
-// options: same as flags given above
+// options: see below
 // -> Promise {stdout, stderr}
+
+// Default options:
+options = {
+  stdio: null,    // set child process stdio
+  help: false,    // show help
+  version: false, // show version
+  log: false,     // enable log
+  id: '',         // set video id (for update)
+  video: '',      // set input video file/URL
+  thumbnail: '',  // set input thumbnail file/URL
+  caption: '',    // set input caption file/URL
+  meta: '',       // set input meta file
+  descriptionpath: '', // set input description file
+  client: {
+    id: 'client_id.json',       // set client id credentials path
+    token: 'client_token.json'  // set client token credentials path
+  },
+  title: '<video>',             // set title
+  description: '<video>',       // set description
+  tags: '',                     // set tags/keywords
+  language: 'en',               // set language
+  category: 'people and blogs', // set category
+  privacystatus: 'private',     // set privacy status
+  embeddable: false,            // enable to be embeddable
+  license: '',                  // set license (standard)
+  publicstatsviewable: false,   // enable public stats to be viewable
+  publishat: '',           // set publish time
+  recordingdate: '',       // set recording date
+  playlistids: '',         // set playlist ids
+  playlisttitles: '',      // set playlist titles
+  location: {
+    latitude: '',          // set latitude coordinate
+    longitude: '',         // set longitude coordinate
+  },
+  locationdescription: '', // set location description
+  upload: {
+    chunk: '',      // set upload chunk size in bytes (8388608)
+    rate: '',       // set upload rate limit in kbps (no limit)
+    time: ''        // set upload time limit ex- "10:00-14:00"
+  },
+  auth: {
+    port: '8080',   // set OAuth request port
+    headless: false // enable browserless OAuth process
+  }
+}
 ```
 <br>
 
