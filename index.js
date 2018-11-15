@@ -42,5 +42,16 @@ function youtubeuploader(o) {
     else fres({stdout, stderr});
   }));
 };
+
+/**
+ * Invoke "youtubeuploader" asynchronously, and get stdout lines.
+ * @param {object} o upload options.
+ */
+function lines(o) {
+  var {stdout} = youtubeuploader(o);
+  var out = stdout.toString().trim();
+  return out? out.split('\n'):[];
+};
 youtubeuploader.sync = sync;
+youtubeuploader.lines = lines;
 module.exports = youtubeuploader;
