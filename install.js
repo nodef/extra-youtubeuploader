@@ -10,7 +10,7 @@ function cpRun(txt) {
 
 // Setup "youtubeuploader".
 function setup() {
-  if(cpRun('youtubeuploader -v')) {
+  if(cpRun('youtubeuploader --version')) {
     console.log('extra: youtubeuploader already exists.');
     return;
   }

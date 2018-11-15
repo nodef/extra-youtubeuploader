@@ -1,4 +1,9 @@
 Upload YouTube videos with caption through machines (via ["youtubeuploader"]).
+> Do you want to:
+> - Upload your AI generated video to YouTube?
+> - Or, [Upload Wikipedia TTS videos on YouTube]?
+
+Sample: ["Pixelsphere OST (2017)"]. 
 <br>
 
 
@@ -8,6 +13,8 @@ Upload YouTube videos with caption through machines (via ["youtubeuploader"]).
 
 1. Install [Node.js], if not installed.
 2. Run `npm install -g extra-youtubeuploader` in [console].
+3. To install this as a package use `npm install extra-youtubeuploader`.
+> ["youtubeuploader"] is installed by [setup-youtubeuploader], if not available.
 
 
 ### get client id
@@ -52,41 +59,53 @@ Upload YouTube videos with caption through machines (via ["youtubeuploader"]).
 youtubeuploader -v video.mp4
 # video.mp4 uploaded (yay!)
 
-youtubeuploader -v video.mkv -yt "Me at the zoo" -yd "The first video on YouTube..."
+youtubeuploader -v video.mkv -ot "Me at the zoo" -od "The first video on YouTube..."
 # video.mkv uploaded with title and description
 
-youtubeuploader -v video.mp4 -yp public
-# video.mp4 uploaded as public video
+youtubeuploader -v video.mp4 -op public -l
+# video.mp4 uploaded as public video (log enabled)
+
+youtubeuploader -ot "Me at the zoo"
+# get video id from title
+
+youtubeuploader -i "jNQXAC9IVRw" -ot "Elephants at zoo"
+# update video title "Me at the zoo" -> "Elephants at zoo"
+
+youtubeuploader -i "jNQXAC9IVRw" -c "odia.txt" -ol "or"
+# upload odia captions for the video
 ```
 
 ### reference
 
 ```bash
 youtubeuploader [options]
-# --help: show this help
-# -v, --video:     set input video file
-# -t, --thumbnail: set input thumbnail file
-# -c, --caption:   set input caption file
-# -m, --meta:      set input meta file
+# --help:    show help
+# --version: show version
 # -l, --log:       enable log
-# -ci, --client_id:    set client id credentials path (client_id.json)
-# -ct, --client_token: set client token credentials path (client_token.json)
-# -vt, --video_title:         set video title (video file)
-# -vd, --video_description:   set video description (video file)
-# -vk, --video_tags:          set video tags/keywords
-# -vl, --video_language:      set video language (en)
-# -vc, --video_category:      set video category id (22)
-# -vp, --video_privacystatus: set video privacy status (public)
-# -ve, --video_embeddable:    enable video to be embeddable (1)
-# -vl, --video_license:       set video license (standard)
-# -vs, --video_publicstatsviewable: enable public video stats to be viewable (1)
-# -vpa, --video_publishat:          set video publish time
-# -vrd, --video_recordingdate:  set video recording date
-# -vpi, --video_playlistids:    set video playlist ids
-# -vpt, --video_playlisttitles: set video playlist titles
-# -vla, --video_location_latitude:   set video latitude coordinate
-# -vlo, --video_location_longitude:  set video longitude coordinate
-# -vld, --video_locationdescription: set video location description
+# -i, --id:        set video id (for update)
+# -v, --video:     set input video file/URL
+# -t, --thumbnail: set input thumbnail file/URL
+# -c, --caption:   set input caption file/URL
+# -m, --meta:      set input meta file
+# -d, --descriptionpath: set input description file
+# -ci, --client_id:      set client id credentials path (client_id.json)
+# -ct, --client_token:   set client token credentials path (client_token.json)
+# -ot, --title:         set title (video)
+# -od, --description:   set description (video)
+# -ok, --tags:          set tags/keywords
+# -ol, --language:      set language (en)
+# -oc, --category:      set category (people and blobd)
+# -op, --privacystatus: set privacy status (public)
+# -oe, --embeddable:    enable to be embeddable
+# -ol, --license:       set license (standard)
+# -os, --publicstatsviewable: enable public stats to be viewable
+# -opa, --publishat:          set publish time
+# -ord, --recordingdate:  set recording date
+# -opi, --playlistids:    set playlist ids
+# -opt, --playlisttitles: set playlist titles
+# -ola, --location_latitude:   set latitude coordinate
+# -olo, --location_longitude:  set longitude coordinate
+# -old, --locationdescription: set location description
 # -uc, --upload_chunk:  set upload chunk size in bytes (8388608)
 # -ur, --upload_rate:   set upload rate limit in kbps (no limit)
 # -ut, --upload_time:   set upload time limit ex- "10:00-14:00"
@@ -95,30 +114,62 @@ youtubeuploader [options]
 
 # Environment variables:
 $YOUTUBEUPLOADER_LOG # enable log (0)
-$YOUTUBEUPLOADER_CLIENT_ID    # set client id credentials path (client_id.json)
-$YOUTUBEUPLOADER_CLIENT_TOKEN # set client token credentials path (client_token.json)
-$YOUTUBEUPLOADER_VIDEO_TITLE         # set video title (video file)
-$YOUTUBEUPLOADER_VIDEO_DESCRIPTION   # set video description (video file)
-$YOUTUBEUPLOADER_VIDEO_TAGS          # set video tags/keywords
-$YOUTUBEUPLOADER_VIDEO_LANGUAGE      # set video language (en)
-$YOUTUBEUPLOADER_VIDEO_CATEGORY      # set video category id (22)
-$YOUTUBEUPLOADER_VIDEO_PRIVACYSTATUS # set video privacy (public)
-$YOUTUBEUPLOADER_VIDEO_EMBEDDABLE    # enable video to be embeddable (1)
-$YOUTUBEUPLOADER_VIDEO_LICENSE       # set video license (standard)
-$YOUTUBEUPLOADER_VIDEO_PUBLICSTATSVIEWABLE # enable public video stats to be viewable (1)
-$YOUTUBEUPLOADER_VIDEO_PUBLISHAT           # set video publish time
-$YOUTUBEUPLOADER_VIDEO_RECORDINGDATE  # set video recording date
-$YOUTUBEUPLOADER_VIDEO_PLAYLISTIDS    # set video playlist ids
-$YOUTUBEUPLOADER_VIDEO_PLAYLISTTITLES # set video playlist titles
-$YOUTUBEUPLOADER_VIDEO_LOCATION_LATITUDE   # set video latitude coordinate
-$YOUTUBEUPLOADER_VIDEO_LOCATION_LONGITUDE  # set video longitude coordinate
-$YOUTUBEUPLOADER_VIDEO_LOCATIONDESCRIPTION # set video location description
+$YOUTUBEUPLOADER_VIDEO     # set input video file
+$YOUTUBEUPLOADER_THUMBNAIL # set input thumbnail file
+$YOUTUBEUPLOADER_CAPTION   # set input caption file
+$YOUTUBEUPLOADER_META      # set input meta file
+$YOUTUBEUPLOADER_DESCRIPTIONPATH # set input description file
+$YOUTUBEUPLOADER_CLIENT_ID       # set client id credentials path (client_id.json)
+$YOUTUBEUPLOADER_CLIENT_TOKEN    # set client token credentials path (client_token.json)
+$YOUTUBEUPLOADER_TITLE         # set title (file)
+$YOUTUBEUPLOADER_DESCRIPTION   # set description (file)
+$YOUTUBEUPLOADER_TAGS          # set tags/keywords
+$YOUTUBEUPLOADER_LANGUAGE      # set language (en)
+$YOUTUBEUPLOADER_CATEGORY      # set category id (22)
+$YOUTUBEUPLOADER_PRIVACYSTATUS # set privacy (public)
+$YOUTUBEUPLOADER_EMBEDDABLE    # enable to be embeddable (0)
+$YOUTUBEUPLOADER_LICENSE       # set license (standard)
+$YOUTUBEUPLOADER_PUBLICSTATSVIEWABLE # enable public stats to be viewable (0)
+$YOUTUBEUPLOADER_PUBLISHAT           # set publish time
+$YOUTUBEUPLOADER_RECORDINGDATE  # set recording date
+$YOUTUBEUPLOADER_PLAYLISTIDS    # set playlist ids
+$YOUTUBEUPLOADER_PLAYLISTTITLES # set playlist titles
+$YOUTUBEUPLOADER_LOCATION_LATITUDE   # set latitude coordinate
+$YOUTUBEUPLOADER_LOCATION_LONGITUDE  # set longitude coordinate
+$YOUTUBEUPLOADER_LOCATIONDESCRIPTION # set location description
 $YOUTUBEUPLOADER_UPLOAD_CHUNK  # set upload chunk size in bytes (8388608)
 $YOUTUBEUPLOADER_UPLOAD_RATE   # set upload rate limit in kbps (no limit)
 $YOUTUBEUPLOADER_UPLOAD_TIME   # set upload time limit ex- "10:00-14:00"
 $YOUTUBEUPLOADER_AUTH_PORT     # set OAuth request port (8080)
-$YOUTUBEUPLOADER_AUTH_HEADLESS # enable browserless OAuth process
+$YOUTUBEUPLOADER_AUTH_HEADLESS # enable browserless OAuth process (0)
 ```
+
+```javascript
+// META file (.json)
+// - specified using -m/--meta
+// - all fields are optional
+{
+  "title": "How Risky Is The Stock Market?",
+  "description": "Have you ever thought about investing ...",
+  "tags": ["stock marketing", "risk management"],
+  "privacyStatus": "public",
+  "embeddable": true,
+  "license": "creativeCommon",
+  "publicStatsViewable": true,
+  "publishAt": "2017-06-01T12:05:00+02:00",
+  "categoryId": "10",
+  "recordingdate": "2017-05-21",
+  "location": {
+    "latitude": 48.8584,
+    "longitude": 2.2945
+  },
+  "locationDescription":  "Bombay Stock Exchange",
+  "playlistIds":  ["xxxxxxxxxxxxxxxxxx", "yyyyyyyyyyyyyyyyyy"],
+  "playlistTitles":  ["my test playlist"],
+  "language":  "en"
+}
+```
+<br>
 
 
 ## package
@@ -127,72 +178,67 @@ $YOUTUBEUPLOADER_AUTH_HEADLESS # enable browserless OAuth process
 ```javascript
 const youtubeuploader = require('extra-youtubeuploader');
 
-youtubeuploader();
+await youtubeuploader({video: 'video.mp4'})
+// video.mp4 uploaded (yay!)
+
+await youtubeuploader({video: 'video.mkv', title: 'Me at the zoo',
+  description: 'The first video on YouTube...'});
+// video.mkv uploaded with title and description
+
+youtubeuploader.sync({video: 'video.mp4', privacystatus: 'public', log: true});
+// video.mp4 uploaded as public video (log enabled)
+
+var {stdout, stderr} = await youtubeuploader({title: 'Me at the zoo'});
+var id = stdout.split('\n')[0];
+// get video ids from title
+
+await youtubeuploader({id, title: 'Elephants at zoo'});
+// update video title "Me at the zoo" -> "Elephants at zoo"
+
+await youtubeuploader({id, caption: 'odia.txt', language: 'or'});
+// upload odia captions for the video
 ```
 
+### reference
 
 ```javascript
 const youtubeuploader = require('extra-youtubeuploader');
-// youtubeuploader.sync(<options>): stdout when done
-// youtubeuploader(<options>)
-// -> Promise {stdout, stderr} when done
 
-// <options>: {
-//   cache:       // Token cache file ('request.token')
-//   caption:     // Caption to upload. Can be a URL
-//   categoryId:  // Video category Id
-//   chunksize:   // Size (in bytes) of each upload chunk. A zero value will cause all data to be uploaded in a single request (8388608)
-//   description:  // Video description ('uploaded by youtubeuploader')
-//   filename:     // Filename to upload. Can be a URL
-//   headlessAuth: // Set this if no browser available for the oauth authorisation step
-//   language:     // Video language ('en')
-//   limitBetween: // Only rate limit between these times e.g. 10:00-14:00 (local time zone)
-//   metaJSON:     // JSON file containing title,description,tags etc (optional)
-//   oAuthPort:    // TCP port to listen on when requesting an oAuth token (8080)
-//   privacy:      // Video privacy status ('private')
-//   quiet:        // Suppress progress indicator
-//   ratelimit:    // Rate limit upload in kbps. No limit by default
-//   secrets:      // Client Secrets configuration ('client_secrets.json')
-//   tags:         // Comma separated list of video tags
-//   thumbnail:    // Thumbnail to upload. Can be a URL
-//   title:        // Video title ('Video Title')
-//   v:            // Show version
-// }
+youtubeuploader.sync(options={})
+// options: same as flags given above
+// -> stdout
 
-
-youtubeuploader.sync({filename: 'video.mp4'});
-// upload video.mp4 (secrets: client_secrets.json, cache: request.token)
-
-var secrets = 'C:\\Users\\wolfram77\\.google\\client_secrets.json';
-var cache = 'C:\\Users\\wolfram77\\.google\\request.token';
-youtubeuploader.sync({secrets, cache, filename: 'video.mkv'});
-// upload video.mkv with custom secrets, cache
-
-var title = 'Me at the zoo';
-var description = 'The first video on YouTube...';
-youtubeuploader.sync({secrets, cache, filename: 'zoo.avi', title, description});
-
-/* zoo-meta.json: {title, description, privacy: 'public'} */
-var metaJSON = 'C:\\Base\\zoo-meta.json';
-youtubeuploader.sync({secrets, cache, filename: 'zoo.avi', metaJSON});
-// upload zoo.avi with metaJSON (details at "youtubeuploader")
-
-/* caption: All right so here we are infront of the elepants... */
-var caption = 'C:\\Base\\zoo-caption.txt';
-youtubeuploader.sync({secrets, cache, filename: 'zoo.avi', metaJSON, caption});
-// upload zoo.avi with caption
+youtubeuploader(options={})
+// options: same as flags given above
+// -> Promise {stdout, stderr}
 ```
+<br>
+
+
+## similar
+
+Do you need anything similar?
+- [extra-stillvideo] can generate video from audio and image.
+- [extra-googletts] can generate spoken audio from text.
+<br><br>
 
 
 [![nodef](https://i.imgur.com/HS08T0y.jpg)](https://nodef.github.io)
 
-["youtubeuploader"]: https://github.com/golangf/youtubeuploader
-[setup-youtubeuploader]: https://www.npmjs.com/package/setup-youtubeuploader
+[Upload Wikipedia TTS videos on YouTube]: https://www.youtube.com/results?search_query=wikipedia+audio+article
+["Pixelsphere OST (2017)"]: https://www.youtube.com/watch?v=RCryNyHbSDc&list=PLNEveYilIj1AV5-ETDCHufWazEHRcP8o-
 
+[extra-stillvideo]: https://www.npmjs.com/package/extra-stillvideo
+[extra-googletts]: https://www.npmjs.com/package/extra-googletts
 [Node.js]: https://nodejs.org/en/download/
+
+[releases]: https://github.com/golangf/youtubeuploader/releases
 [console]: https://en.wikipedia.org/wiki/Shell_(computing)#Text_(CLI)_shells
 [account]: https://accounts.google.com/signup
 [Google Cloud Platform]: https://console.developers.google.com/
 [new project]: https://console.cloud.google.com/projectcreate
 [YouTube Data API]: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 [credentials]: https://console.cloud.google.com/apis/credentials/wizard
+
+["youtubeuploader"]: https://github.com/golangf/youtubeuploader
+[setup-youtubeuploader]: https://www.npmjs.com/package/setup-youtubeuploader
