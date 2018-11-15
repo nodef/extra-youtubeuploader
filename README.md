@@ -215,15 +215,15 @@ youtubeuploader(options={})
 
 // Default options:
 options = {
-  stdio: null,    // set child process stdio
-  help: false,    // show help
-  version: false, // show version
-  log: false,     // enable log
-  id: '',         // set video id (for update)
-  video: '',      // set input video file/URL
-  thumbnail: '',  // set input thumbnail file/URL
-  caption: '',    // set input caption file/URL
-  meta: '',       // set input meta file
+  stdio: [0, 1, 2], // set child process stdio
+  help: false,      // show help
+  version: false,   // show version
+  log: false,       // enable log
+  id: '',        // set video id (for update)
+  video: '',     // set input video file/URL
+  thumbnail: '', // set input thumbnail file/URL
+  caption: '',   // set input caption file/URL
+  meta: '',      // set input meta file
   descriptionpath: '', // set input description file
   client: {
     id: 'client_id.json',       // set client id credentials path
