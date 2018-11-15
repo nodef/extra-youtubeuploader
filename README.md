@@ -206,17 +206,14 @@ await youtubeuploader({id, caption: 'odia.txt', language: 'or'});
 const youtubeuploader = require('extra-youtubeuploader');
 
 youtubeuploader.sync(options={})
-// Invoke "youtubeuploader" synchronously.
 // options: see below
 // -> stdout
 
 youtubeuploader.lines(options={})
-// Invoke "youtubeuploader" asynchronously, and get stdout lines.
 // options: see below
 // -> Promise <stdout lines>
 
 youtubeuploader(options={})
-// Invoke "youtubeuploader" asynchronously.
 // options: see below
 // -> Promise {stdout, stderr}
 
