@@ -11,10 +11,8 @@ Sample: ["Pixelsphere OST (2017)"].
 
 ### install
 
-1. Install [Node.js], if not installed.
-2. Run `npm install -g extra-youtubeuploader` in [console].
-3. To install this as a package use `npm install extra-youtubeuploader`.
-> ["youtubeuploader"] is installed by [setup-youtubeuploader], if not available.
+1. Download for your OS from [releases].
+2. Extract it to a directory and add the directory to `PATH`.
 
 
 ### get client id
@@ -50,6 +48,25 @@ Sample: ["Pixelsphere OST (2017)"].
 4. `youtubeuploader` wants to access your Google Account.
 5. Select `Allow`, and close browser window.
 6. `client_token.json` should be created.
+
+### set environment variables
+
+1. Copy path of `client_id.json`.
+2. Set environment variable `YOUTUBEUPLOADER_CLIENT_ID` to it.
+3. Copy path of `client_token.json`.
+4. Set environment variable `YOUTUBEUPLOADER_CLIENT_TOKEN` to it.
+5. Now you can use **youtubeuploader** from any directory.
+> On Windows, use [RapidEE] to set environment variable.
+
+```bash
+# on linux or macos console
+export YOUTUBEUPLOADER_CLIENT_ID="[PATH TO client_id.json]"
+export YOUTUBEUPLOADER_CLIENT_TOKEN="[PATH TO client_token.json]"
+
+# on windows powershell
+$env:YOUTUBEUPLOADER_CLIENT_ID="[PATH TO client_id.json]"
+$env:YOUTUBEUPLOADER_CLIENT_TOKEN="[PATH TO client_token.json]"
+```
 <br>
 
 
@@ -287,6 +304,7 @@ Suggestions are welcome. Please [create an issue].
 [new project]: https://console.cloud.google.com/projectcreate
 [YouTube Data API]: https://console.cloud.google.com/apis/library/youtube.googleapis.com
 [credentials]: https://console.cloud.google.com/apis/credentials/wizard
+[RapidEE]: https://www.rapidee.com/en/about
 
 ["youtubeuploader"]: https://github.com/golangf/youtubeuploader
 [setup-youtubeuploader]: https://www.npmjs.com/package/setup-youtubeuploader
