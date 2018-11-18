@@ -41,43 +41,41 @@ async function lines(o) {
 };
 
 // Get options from arguments.
-function options(a, z={}) {
-  for(var i=2, I=a.length; i<I; i++) {
-    if(a[i]==='--help') z.help = true;
-    else if(a[i]==='--version') z.version = true;
-    else if(a[i]==='-l' || a[i]==='--log') z.log = true;
-    else if(a[i]==='-i' || a[i]==='--id') z.id = a[++i];
-    else if(a[i]==='-v' || a[i]==='--video') z.video = a[++i];
-    else if(a[i]==='-t' || a[i]==='--thumbnail') z.thumbnail = a[++i];
-    else if(a[i]==='-c' || a[i]==='--caption') z.caption = a[++i];
-    else if(a[i]==='-m' || a[i]==='--meta') z.meta = a[++i];
-    else if(a[i]==='-d' || a[i]==='--descriptionpath') z.descriptionpath = a[++i];
-    else if(a[i]==='-ci' || a[i]==='--client_id') z.client_id = a[++i];
-    else if(a[i]==='-ct' || a[i]==='--client_token') z.client_token = a[++i];
-    else if(a[i]==='-ot' || a[i]==='--title') z.title = a[++i];
-    else if(a[i]==='-od' || a[i]==='--description') z.description = a[++i];
-    else if(a[i]==='-ok' || a[i]==='--tags') z.tags = a[++i];
-    else if(a[i]==='-ol' || a[i]==='--language') z.language = a[++i];
-    else if(a[i]==='-oc' || a[i]==='--category') z.category = a[++i];
-    else if(a[i]==='-op' || a[i]==='--privacystatus') z.privacystatus = a[++i];
-    else if(a[i]==='-oe' || a[i]==='--embeddable') z.embeddable = true;
-    else if(a[i]==='-ol' || a[i]==='--license') z.license = a[++i];
-    else if(a[i]==='-os' || a[i]==='--publicstatsviewable') z.publicstatsviewable = true;
-    else if(a[i]==='-opa' || a[i]==='--publishat') z.publishat = a[++i];
-    else if(a[i]==='-ord' || a[i]==='--recordingdate') z.recordingdate = a[++i];
-    else if(a[i]==='-opi' || a[i]==='--playlistids') z.playlistids = a[++i];
-    else if(a[i]==='-opt' || a[i]==='--playlisttitles') z.playlisttitles = a[++i];
-    else if(a[i]==='-ola' || a[i]==='--location_latitude') z.location_latitude = a[++i];
-    else if(a[i]==='-olo' || a[i]==='--location_longitude') z.location_longitude = a[++i];
-    else if(a[i]==='-old' || a[i]==='--locationdescription') z.locationdescription = a[++i];
-    else if(a[i]==='-uc' || a[i]==='--upload_chunk') z.upload_chunk = a[++i];
-    else if(a[i]==='-ur' || a[i]==='--upload_rate') z.upload_rate = a[++i];
-    else if(a[i]==='-ut' || a[i]==='--upload_time') z.upload_time = a[++i];
-    else if(a[i]==='-ap' || a[i]==='--auth_port') z.auth_port = a[++i];
-    else if(a[i]==='-ah' || a[i]==='--auth_headless') z.auth_headless = true;
-    else z.input = a[i];
-  }
-  return z;
+function options(o, k, a, i) {
+  if(k==='--help') o.help = true;
+  else if(k==='--version') o.version = true;
+  else if(k==='-l' || k==='--log') o.log = true;
+  else if(k==='-i' || k==='--id') o.id = a[++i];
+  else if(k==='-v' || k==='--video') o.video = a[++i];
+  else if(k==='-t' || k==='--thumbnail') o.thumbnail = a[++i];
+  else if(k==='-c' || k==='--caption') o.caption = a[++i];
+  else if(k==='-m' || k==='--meta') o.meta = a[++i];
+  else if(k==='-d' || k==='--descriptionpath') o.descriptionpath = a[++i];
+  else if(k==='-ci' || k==='--client_id') o.client_id = a[++i];
+  else if(k==='-ct' || k==='--client_token') o.client_token = a[++i];
+  else if(k==='-ot' || k==='--title') o.title = a[++i];
+  else if(k==='-od' || k==='--description') o.description = a[++i];
+  else if(k==='-ok' || k==='--tags') o.tags = a[++i];
+  else if(k==='-ol' || k==='--language') o.language = a[++i];
+  else if(k==='-oc' || k==='--category') o.category = a[++i];
+  else if(k==='-op' || k==='--privacystatus') o.privacystatus = a[++i];
+  else if(k==='-oe' || k==='--embeddable') o.embeddable = true;
+  else if(k==='-ol' || k==='--license') o.license = a[++i];
+  else if(k==='-os' || k==='--publicstatsviewable') o.publicstatsviewable = true;
+  else if(k==='-opa' || k==='--publishat') o.publishat = a[++i];
+  else if(k==='-ord' || k==='--recordingdate') o.recordingdate = a[++i];
+  else if(k==='-opi' || k==='--playlistids') o.playlistids = a[++i];
+  else if(k==='-opt' || k==='--playlisttitles') o.playlisttitles = a[++i];
+  else if(k==='-ola' || k==='--location_latitude') o.location_latitude = a[++i];
+  else if(k==='-olo' || k==='--location_longitude') o.location_longitude = a[++i];
+  else if(k==='-old' || k==='--locationdescription') o.locationdescription = a[++i];
+  else if(k==='-uc' || k==='--upload_chunk') o.upload_chunk = a[++i];
+  else if(k==='-ur' || k==='--upload_rate') o.upload_rate = a[++i];
+  else if(k==='-ut' || k==='--upload_time') o.upload_time = a[++i];
+  else if(k==='-ap' || k==='--auth_port') o.auth_port = a[++i];
+  else if(k==='-ah' || k==='--auth_headless') o.auth_headless = true;
+  else o.input = a[i];
+  return i+1;
 };
 youtubeuploader.lines = lines;
 youtubeuploader.options = options;
