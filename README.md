@@ -306,5 +306,7 @@ Suggestions are welcome. Please [create an issue].
 [credentials]: https://console.cloud.google.com/apis/credentials/wizard
 [RapidEE]: https://www.rapidee.com/en/about
 
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/extra-youtubeuploader)
+
 ["youtubeuploader"]: https://github.com/golangf/youtubeuploader
 [setup-youtubeuploader]: https://www.npmjs.com/package/setup-youtubeuploader
